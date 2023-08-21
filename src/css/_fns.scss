@@ -1,0 +1,6 @@
+@use "sass:math";
+
+@function rem($value) {
+  @return math.div(math.div($value, 2), 100) * 1rem;
+}
+

@@ -1,0 +1,52 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+  margin: 0;
+  padding: 0;
+  border:0;
+}
+body{
+  font-family: "Microsoft YaHei","PingFang SC","Arial";
+  font-size: 14px;
+  color:#181818;
+  background:#f8f8f8;
+  width: rem(750);
+  margin:  0 auto;
+}
+html,body{height: 100%;}
+ol,ul li{list-style-type:none;}
+em,i,cite{font-style:normal;}
+fieldset,img{border:none; vertical-align:middle;}
+a{color:#181818 ;text-decoration:none;}
+a:hover{text-decoration:none;}
+.clear{clear:both;}
+.clearfix:after{clear:both; visibility:hidden;content:"";display:block;font-size:0;height:0;}
+* html .clearfix{height:1%}
+input[type="text"], input[type="password"], textarea {
+  outline-style: none;
+  -webkit-appearance: none;
+}
+select,
+input,
+textarea {vertical-align: middle;outline: none;resize: none;}
+::-ms-clear { display: none; }
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #7A848D;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #7A848D;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #7A848D;
+}
+*,*:before,*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-all;
+  outline: none;
+}

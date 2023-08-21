@@ -1,0 +1,51 @@
+<!-- 强制禁止用户修改微信客户端的字体大小---begin--- -->
+<style>
+  body {
+    /* IOS禁止微信调整字体大小 */
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+  }
+</style>
+<script>
+  (function () {
+    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+      handleFontSize();
+    } else {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", handleFontSize);
+        document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+      }
+    }
+    function handleFontSize() {
+      // 设置网页字体为默认大小
+      WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 16 });
+      // 重写设置网页字体大小的事件
+      WeixinJSBridge.on('menu:setfont', function () {
+        WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 16 });
+      });
+    }
+  })();
+</script>
+<!-- 强制禁止用户修改微信客户端的字体大小---end--- -->
+<script>
+  (function (doc, win) {
+    var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if (clientWidth > 432) {
+          docEl.style.fontSize = 100 + 'px';
+        } else {
+          docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+        }
+      };
+    if (!doc.addEventListener) return;
+    recalc()
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+</script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="renderer" content="webkit" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="format-detection" content="telphone=no" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="Keywords" content="电商；春季；购车；出游；" />
+<meta name="description" content="爱卡2022年春季电商节" />
+  <link rel="stylesheet" href="./css/index.min.css?v=20230221162156" />
+<script src="./libs/jquery-1.11.3.min.js?v=20230221162156"></script>
+  <!-- 强制禁止用户修改微信客户端的字体大小---begin--- -->
+<style>
+  body {
+    /* IOS禁止微信调整字体大小 */
+    -webkit-text-size-adjust: 100% !important;
+    text-size-adjust: 100% !important;
+    -moz-text-size-adjust: 100% !important;
+  }
+</style>
+<script>
+  (function () {
+    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
+      handleFontSize();
+    } else {
+      if (document.addEventListener) {
+        document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
+      } else if (document.attachEvent) {
+        document.attachEvent("WeixinJSBridgeReady", handleFontSize);
+        document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+      }
+    }
+    function handleFontSize() {
+      // 设置网页字体为默认大小
+      WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 16 });
+      // 重写设置网页字体大小的事件
+      WeixinJSBridge.on('menu:setfont', function () {
+        WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize': 16 });
+      });
+    }
+  })();
+</script>
+<!-- 强制禁止用户修改微信客户端的字体大小---end--- -->
+<script>
+  (function (doc, win) {
+    var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if (clientWidth > 432) {
+          docEl.style.fontSize = 100 + 'px';
+        } else {
+          docEl.style.fontSize = 100 * (clientWidth / 375) + 'px';
+        }
+      };
+    if (!doc.addEventListener) return;
+    recalc()
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+</script>
+  <title>爱卡 春享·出游季</title>
+</head>
+
+<body>
+  
+</body>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js?v=20230221162156"></script>
+<script src="./libs/jxcar.js?v=20230221162156"></script>
+<script src="./libs/nshare.js?v=20230221162156"></script>
+<!-- <script src="./libs/zepto.min.js?v=20230221162156"></script> -->
+<!-- <script src="./libs/vconsole.min.js?v=20230221162156"></script> -->
+<script src="./libs/template-web.js?v=20230221162156"></script>
+<script src="./js/chunk-vendor.min.js?v=20230221162156"></script>
+<script src="./js/index.min.js?v=20230221162156"></script>
+
+</html>
